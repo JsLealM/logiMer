@@ -1,4 +1,5 @@
-import { useState, WheelEvent, MouseEvent } from 'react';
+import { useState } from 'react';
+import type { WheelEvent, MouseEvent } from 'react';
 
 export function useCamera() {
   const [scale, setScale] = useState(1);

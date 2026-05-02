@@ -1,6 +1,5 @@
-import { RefObject } from 'react';
-
-export function useExport(svgRef: RefObject<SVGSVGElement>) {
+import type { RefObject } from 'react';
+export function useExport(svgRef: RefObject<SVGSVGElement | null>) {
   
   const getSvgData = () => {
     if (!svgRef.current) return { str: '', width: 0, height: 0 };
