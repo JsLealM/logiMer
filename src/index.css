@@ -1,0 +1,136 @@
+@import "tailwindcss";
+
+/* ── Enable class-based dark mode (Tailwind v4) ────────────── */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ── Cohere 2026 Design Tokens ─────────────────────────────── */
+@theme {
+  /* Brand & accent colors */
+  --color-cohere-black:   #000000;
+  --color-primary:        #17171c;
+  --color-ink:            #212121;
+  --color-deep-green:     #003c33;
+  --color-dark-navy:      #071829;
+  --color-canvas:         #ffffff;
+  --color-soft-stone:     #eeece7;
+  --color-pale-green:     #edfce9;
+  --color-pale-blue:      #f1f5ff;
+  --color-hairline:       #d9d9dd;
+  --color-border-light:   #e5e7eb;
+  --color-card-border:    #f2f2f2;
+  --color-muted:          #93939f;
+  --color-slate:          #75758a;
+  --color-body-muted:     #616161;
+  --color-action-blue:    #1863dc;
+  --color-focus-blue:     #4c6ee6;
+  --color-coral:          #ff7759;
+  --color-coral-soft:     #ffad9b;
+  --color-form-focus:     #9b60aa;
+  --color-on-primary:     #ffffff;
+  --color-on-dark:        #ffffff;
+  --color-error:          #b30000;
+
+  /* Border radius — Cohere scale */
+  --radius-xs:   4px;
+  --radius-sm:   8px;
+  --radius-md:   16px;
+  --radius-lg:   22px;
+  --radius-xl:   30px;
+  --radius-pill: 32px;
+
+  /* Font families */
+  --font-display: "Space Grotesk", "Inter", ui-sans-serif, system-ui;
+  --font-ui:      "Inter", "Arial", ui-sans-serif, system-ui;
+  --font-mono:    "JetBrains Mono", "Fira Code", ui-monospace, monospace;
+}
+
+/* ── Base Reset ─────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-ui);
+  -webkit-font-smoothing: antialiased;
+  /* Smooth theme transitions */
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+/* ── Scrollbar styling ──────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+
+/* Dark scrollbar */
+.dark ::-webkit-scrollbar-thumb { background: #3a3a4a; border-radius: 999px; }
+.dark ::-webkit-scrollbar-thumb:hover { background: #5a5a70; }
+
+/* Light scrollbar */
+::-webkit-scrollbar-thumb { background: #c8c8d0; border-radius: 999px; }
+::-webkit-scrollbar-thumb:hover { background: #a0a0b0; }
+
+/* ── Textarea / code editor ──────────────────────────────────── */
+textarea.code-editor {
+  resize: none;
+  outline: none;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+  border-radius: var(--radius-sm);
+  padding: 16px;
+  transition: border-color 0.2s ease, background 0.25s ease, color 0.25s ease,
+              box-shadow 0.2s ease;
+}
+
+/* Dark editor */
+.dark textarea.code-editor {
+  background: #0d0d12;
+  color: #c9d1e0;
+  border: 1px solid #2a2a38;
+  caret-color: #4c6ee6;
+}
+.dark textarea.code-editor:focus {
+  border-color: #9b60aa;
+  box-shadow: 0 0 0 3px rgba(155, 96, 170, 0.15);
+}
+
+/* Light editor */
+textarea.code-editor {
+  background: #ffffff;
+  color: #212121;
+  border: 1px solid #d9d9dd;
+  caret-color: #1863dc;
+}
+textarea.code-editor:focus {
+  border-color: #1863dc;
+  box-shadow: 0 0 0 3px rgba(24, 99, 220, 0.12);
+}
+
+/* ── SVG canvas backgrounds ──────────────────────────────────── */
+
+/* Dark canvas — deep product field with grid */
+.dark .svg-canvas {
+  background-color: #0a0a10;
+  background-image:
+    radial-gradient(circle at 50% 50%, rgba(72, 72, 100, 0.08) 0%, transparent 70%),
+    linear-gradient(#1a1a26 1px, transparent 1px),
+    linear-gradient(90deg, #1a1a26 1px, transparent 1px);
+  background-size: 100% 100%, 32px 32px, 32px 32px;
+}
+
+/* Light canvas — white editorial canvas with soft grid */
+.svg-canvas {
+  background-color: #f8f9fb;
+  background-image:
+    linear-gradient(#e5e7eb 1px, transparent 1px),
+    linear-gradient(90deg, #e5e7eb 1px, transparent 1px);
+  background-size: 32px 32px, 32px 32px;
+}
+
+/* ── Global transition for theme switches ────────────────────── */
+*, *::before, *::after {
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.15s ease;
+}
+/* Don't transition SVG fill/stroke (too jarring) */
+svg *, path, circle, rect, line { transition: none !important; }

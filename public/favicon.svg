@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="64" height="64">
+  <!-- Fondo oscuro con bordes redondeados -->
+  <rect width="24" height="24" rx="5" fill="#17171c"/>
+  
+  <!-- El CPU / Microchip en color esmeralda -->
+  <g fill="none" stroke="#10b981" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Marco exterior del chip -->
+    <rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect>
+    <!-- Núcleo central -->
+    <rect x="9" y="9" width="6" height="6"></rect>
+    <!-- Pines superiores -->
+    <line x1="9" y1="1" x2="9" y2="4"></line>
+    <line x1="15" y1="1" x2="15" y2="4"></line>
+    <!-- Pines inferiores -->
+    <line x1="9" y1="20" x2="9" y2="23"></line>
+    <line x1="15" y1="20" x2="15" y2="23"></line>
+    <!-- Pines derechos -->
+    <line x1="20" y1="9" x2="23" y2="9"></line>
+    <line x1="20" y1="14" x2="23" y2="14"></line>
+    <!-- Pines izquierdos -->
+    <line x1="1" y1="9" x2="4" y2="9"></line>
+    <line x1="1" y1="14" x2="4" y2="14"></line>
+  </g>
+</svg>
